@@ -602,6 +602,7 @@ GameObject:
   - component: {fileID: 1320142737953672225}
   - component: {fileID: 1320142737953672238}
   - component: {fileID: 1320142737953672226}
+  - component: {fileID: 5554283643477476475}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -624,6 +625,7 @@ Transform:
   - {fileID: 1320142737341857792}
   - {fileID: 1320142736675994805}
   - {fileID: 1574201233639296688}
+  - {fileID: 5779933725719170745}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -799,6 +801,53 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &5554283643477476475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320142737953672236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11eb193ecd5b8d8418a98d5a2a013713, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpawnPoint: {fileID: 5779933725719170745}
+  bulletPrefab: {fileID: 4176537399410431923, guid: 08e3afa0f75613041aaf866e7386f5d7,
+    type: 3}
+  bulletSpeed: 15
+--- !u!1 &1361983998430907837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5779933725719170745}
+  m_Layer: 0
+  m_Name: Bullet Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5779933725719170745
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361983998430907837}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.477, z: 0.149}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1320142737953672239}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1409501517789745430
 GameObject:
   m_ObjectHideFlags: 0
