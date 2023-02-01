@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1ad78ce1a909f46489487144649c2ff8
+guid: ee6f05ad00a7a604488cd3c644c28c64
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -24,14 +24,43 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Shoot Rifle
+      takeName: mixamo.com
+      internalID: -203655887218126122
+      firstFrame: 0
+      lastFrame: 56
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -75,12 +104,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - 078ca8e61edb8774995be754d600b1a7
-  - f9439e0d5b4b7bc4189ee785c2f7c06a
-  - 66969031aa30f7f44a79797dca5f19cc
-  - ee6f05ad00a7a604488cd3c644c28c64
-  - 52ad145586c1efa489c60e7b96102e6b
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
@@ -96,7 +120,7 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: Bip001
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
