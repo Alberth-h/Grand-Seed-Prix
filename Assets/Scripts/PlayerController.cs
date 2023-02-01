@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
     [SerializeField] private LayerMask _groundMask;
     [SerializeField] private Transform _groundCheck;
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (!IsOwner) return;
         _direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
         bool isGrounded = Physics.CheckSphere(_groundCheck.position, _groundCheckRadius, _groundMask);
         _animator.SetBool("isJumping", !isGrounded);
@@ -39,6 +41,7 @@ public class PlayerController : MonoBehaviour
     
     void FixedUpdate()
     {
+        if (!IsOwner) return;
         bool isRunning = _direction.magnitude > 0.1f;
         
         if (isRunning)
@@ -55,6 +58,7 @@ public class PlayerController : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
+        if (!IsOwner) return;
         if (collision.gameObject.tag == "Limit")
         {
             transform.position = new Vector3(31, 12, 55);
