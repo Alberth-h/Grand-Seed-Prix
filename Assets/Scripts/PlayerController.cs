@@ -53,4 +53,11 @@ public class PlayerController : MonoBehaviour
 
         _animator.SetBool("isRunning", isRunning);
     }
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Limit")
+        {
+            transform.position = new Vector3(31, 12, 55);
+        }
+    }
 }

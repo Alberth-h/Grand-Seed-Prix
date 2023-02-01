@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class GravityBody : MonoBehaviour
 {
-    private static float GRAVITY_FORCE = 800;
+    [SerializeField] private float GRAVITY_FORCE = 800;
     
     public Vector3 GravityDirection
     {

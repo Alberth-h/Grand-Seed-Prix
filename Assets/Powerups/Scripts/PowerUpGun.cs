@@ -5,12 +5,14 @@ using UnityEngine;
 public class PowerUpGun : MonoBehaviour
 {
     [SerializeField] float duration = 10f;
+    [SerializeField] private Animator _animator;
 
     void OnTriggerEnter(Collider collider)
     {
         if(collider.gameObject.tag == "Player")
         {
             StartCoroutine(Picked(collider));
+            _animator.SetBool("isShooting", true);
         }
     }
 
@@ -26,5 +28,6 @@ public class PowerUpGun : MonoBehaviour
         collider.gameObject.GetComponent<ShootBullet>().enabled = false;
 
         Destroy(gameObject);
+        _animator.SetBool("isShooting", false);
     }
 }
