@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8b150a6cfacad8c41aa8bbfcb2957d48
+guid: 7fea848ea50ac6f48a1a857cf3d138c3
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,33 +7,33 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: shoe_leftMat
-    second: {fileID: 2100000, guid: 455c6ebf3236a1a4e91840c44f4ceb19, type: 2}
+      name: Cyclnder
+    second: {fileID: 2100000, guid: 01d1eba28b3806b4ca30f6e151a4e3f0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: shoe_left_liningMat
-    second: {fileID: 2100000, guid: 455c6ebf3236a1a4e91840c44f4ceb19, type: 2}
+      name: Extras
+    second: {fileID: 2100000, guid: 2e989c36f4dc9514c87140e97721d3c7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: shoe_left_plasticMat
-    second: {fileID: 2100000, guid: 246bcd2132b9f50448e83564426a3ef8, type: 2}
+      name: Hat
+    second: {fileID: 2100000, guid: 8187ad7bbece2ef4db3a08d9fde9e601, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: shoe_rightMat
-    second: {fileID: 2100000, guid: 455c6ebf3236a1a4e91840c44f4ceb19, type: 2}
+      name: Rope
+    second: {fileID: 2100000, guid: f57e4a67f1409de478584f4550f8b922, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: shoe_right_liningMat
-    second: {fileID: 2100000, guid: 455c6ebf3236a1a4e91840c44f4ceb19, type: 2}
+      name: Skul
+    second: {fileID: 2100000, guid: 37303539faa30c243a57682d38a747ca, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: shoe_right_plasticMat
-    second: {fileID: 2100000, guid: 246bcd2132b9f50448e83564426a3ef8, type: 2}
+      name: Strap
+    second: {fileID: 2100000, guid: 692f1ef2b7ab2804581920bf1a3d0563, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

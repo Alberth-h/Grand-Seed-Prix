@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpeedUp : MonoBehaviour
 {
-    [SerializeField] GameObject player;
     [SerializeField] float speedUp = 15f;
     [SerializeField] GameObject[] meshes = new GameObject[6];
 
@@ -18,7 +17,7 @@ public class SpeedUp : MonoBehaviour
 
     IEnumerator Picked(Collider collider)
     {
-        player.GetComponent<PlayerController>().speed = speedUp;
+        collider.gameObject.GetComponent<PlayerController>().speed = speedUp;
         
         for(int i = 0; i < 6; i++)
         {
@@ -27,7 +26,7 @@ public class SpeedUp : MonoBehaviour
 
         yield return new WaitForSeconds(5);
 
-        player.GetComponent<PlayerController>().speed = 12f;
+        collider.gameObject.GetComponent<PlayerController>().speed = 12f;
         Destroy(gameObject);
     }
 }

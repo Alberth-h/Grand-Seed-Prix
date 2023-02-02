@@ -604,7 +604,7 @@ GameObject:
   - component: {fileID: 5554283643477476475}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -654,10 +654,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.25725067
   m_Height: 1.9
   m_Direction: 1
-  m_Center: {x: -4.1566668e-14, y: 0.74, z: 0.0000000041604435}
+  m_Center: {x: -0.010952216, y: 0.73999995, z: 0.007932228}
 --- !u!114 &1320142737953672225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -677,7 +677,7 @@ MonoBehaviour:
   _cam: {fileID: 1320142737341857792}
   _animator: {fileID: 2203244293085008909}
   _groundCheckRadius: 0.1
-  _speed: 10
+  speed: 12
   _turnSpeed: 1500
   _jumpForce: 750
 --- !u!114 &1320142737953672238
@@ -692,6 +692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f70eccfac06b4d5b84b0b972529842e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GRAVITY_FORCE: 800
 --- !u!114 &5554283643477476475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -699,7 +700,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320142737953672236}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11eb193ecd5b8d8418a98d5a2a013713, type: 3}
   m_Name: 
@@ -732,7 +733,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361983998430907837}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.477, z: 0.149}
+  m_LocalPosition: {x: -0, y: 1.13, z: 0.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -914,7 +915,7 @@ GameObject:
   - component: {fileID: 2203244293085008909}
   m_Layer: 0
   m_Name: Man_Mesh
-  m_TagString: Untagged
+  m_TagString: Mesh
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
