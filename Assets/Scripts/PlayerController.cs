@@ -22,13 +22,14 @@ public class PlayerController : NetworkBehaviour
     
     void Start()
     {
+        if (!IsOwner) return;
         _rigidbody = transform.GetComponent<Rigidbody>();
         _gravityBody = transform.GetComponent<GravityBody>();
     }
 
     void Update()
     {
-        if (!IsOwner) return;
+        
         _direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
         bool isGrounded = Physics.CheckSphere(_groundCheck.position, _groundCheckRadius, _groundMask);
         _animator.SetBool("isJumping", !isGrounded);
