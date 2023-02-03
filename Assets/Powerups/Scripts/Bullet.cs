@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision collider)
     {
-        Debug.Log(collider.gameObject.tag);
-        Destroy(gameObject);
+        //Debug.Log(collider.gameObject.tag);
+        Destroy(gameObject); 
     }
 }
