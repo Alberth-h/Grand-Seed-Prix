@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69651aa33d94a2249a0b99dc6ff5aac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedUp: 15
+  speedUp: 30
   meshes:
   - {fileID: 6632358606435992557}
   - {fileID: 6677178301630191515}

@@ -634,9 +634,9 @@ GameObject:
   - component: {fileID: 1320142737953672225}
   - component: {fileID: 1320142737953672238}
   - component: {fileID: 5554283643477476475}
-  - component: {fileID: -4498630403570929378}
+  - component: {fileID: -6115654980162581229}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PlayerNETCODE
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -741,7 +741,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4176537399410431923, guid: 08e3afa0f75613041aaf866e7386f5d7,
     type: 3}
   bulletSpeed: 100
---- !u!114 &-4498630403570929378
+--- !u!114 &-6115654980162581229
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
