@@ -708,10 +708,10 @@ MonoBehaviour:
   _groundCheck: {fileID: 3746738205322649340}
   _cam: {fileID: 1320142737341857792}
   _animator: {fileID: 2203244293085008909}
-  _groundCheckRadius: 0.5
-  speed: 20
+  _groundCheckRadius: 0.25
+  speed: 15
   _turnSpeed: 1500
-  _jumpForce: 500
+  _jumpForce: 1000
 --- !u!114 &1320142737953672238
 MonoBehaviour:
   m_ObjectHideFlags: 0

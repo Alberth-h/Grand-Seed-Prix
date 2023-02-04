@@ -64,5 +64,9 @@ public class PlayerController : NetworkBehaviour
         {
             transform.position = new Vector3(31, 12, 55);
         }
+        if (collision.gameObject.tag == "Meta")
+        {
+            Debug.Log("ganaste");
+        }
     }
 }
