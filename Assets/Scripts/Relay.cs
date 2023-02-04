@@ -13,6 +13,9 @@ using Unity.Networking.Transport.Relay;
 public class Relay : MonoBehaviour
 {
     [SerializeField] private Text txtJoinCode;
+    [SerializeField] private Text txtWrongCode;
+    [SerializeField] private Camera cameraMain;
+    [SerializeField] private InputField codeInput; 
     private async void Start()
     {
         await UnityServices.InitializeAsync();
@@ -39,6 +42,8 @@ public class Relay : MonoBehaviour
 
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
 
+            Destroy(cameraMain);
+
             NetworkManager.Singleton.StartHost();
 
             txtJoinCode.text = joinCode;
@@ -53,14 +58,18 @@ public class Relay : MonoBehaviour
     {
         try
         {
-            Debug.Log("Joining Relay with " + joinCode);
-            JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
-
-            RelayServerData relayServerData = new RelayServerData (joinAllocation, "dtls");
-
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
-
-            NetworkManager.Singleton.StartClient();
+            if (codeInput.text == joinCode)
+            {
+                Debug.Log("Joining Relay with " + joinCode);
+                JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
+                RelayServerData relayServerData = new RelayServerData (joinAllocation, "dtls");
+                NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
+                NetworkManager.Singleton.StartClient();
+            }
+            else
+            {
+                txtWrongCode.text = "Code not found";
+            }
         }
         catch(RelayServiceException e)
         {
