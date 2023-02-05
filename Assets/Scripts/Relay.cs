@@ -9,13 +9,13 @@ using UnityEngine.UI;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Networking.Transport.Relay;
+using TMPro;
 
 public class Relay : MonoBehaviour
 {
     [SerializeField] private Text txtJoinCode;
-    [SerializeField] private Text txtWrongCode;
-    [SerializeField] private Camera cameraMain;
-    [SerializeField] private InputField codeInput; 
+    [SerializeField] private TMP_InputField codeInput;
+    [SerializeField] private Button btnJoinRelay; 
     private async void Start()
     {
         await UnityServices.InitializeAsync();
@@ -26,6 +26,7 @@ public class Relay : MonoBehaviour
         };
 
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        btnJoinRelay.onClick.AddListener(() => JoinRelay(codeInput.text));
     }
 
     public async void CreateRelay()
@@ -42,8 +43,6 @@ public class Relay : MonoBehaviour
 
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
 
-            Destroy(cameraMain);
-
             NetworkManager.Singleton.StartHost();
 
             txtJoinCode.text = joinCode;
@@ -58,18 +57,11 @@ public class Relay : MonoBehaviour
     {
         try
         {
-            if (codeInput.text == joinCode)
-            {
                 Debug.Log("Joining Relay with " + joinCode);
                 JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
                 RelayServerData relayServerData = new RelayServerData (joinAllocation, "dtls");
                 NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
                 NetworkManager.Singleton.StartClient();
-            }
-            else
-            {
-                txtWrongCode.text = "Code not found";
-            }
         }
         catch(RelayServiceException e)
         {
