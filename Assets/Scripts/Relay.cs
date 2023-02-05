@@ -15,7 +15,9 @@ public class Relay : MonoBehaviour
 {
     [SerializeField] private Text txtJoinCode;
     [SerializeField] private TMP_InputField codeInput;
-    [SerializeField] private Button btnJoinRelay; 
+    [SerializeField] private Button btnJoinRelay;
+
+    [SerializeField] private GameObject uiButtons;
     private async void Start()
     {
         await UnityServices.InitializeAsync();
@@ -33,6 +35,7 @@ public class Relay : MonoBehaviour
     {
         try
         {
+            Destroy(uiButtons);
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(3);
         
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
