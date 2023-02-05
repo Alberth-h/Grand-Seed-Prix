@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+using UnityEngine.UI;
 
 public class PlayerController : NetworkBehaviour
 {
@@ -19,25 +20,34 @@ public class PlayerController : NetworkBehaviour
     private Vector3 _direction;
 
     private GravityBody _gravityBody;
-    
+    [SerializeField]private GameObject joystick;
+    private GameObject boton;
+    private bool ispressed = false;
+    private Button btn;
     void Start()
     {
         if (!IsOwner) return;
         _rigidbody = transform.GetComponent<Rigidbody>();
         _gravityBody = transform.GetComponent<GravityBody>();
+       joystick = GameObject.Find("Canvas/Fixed Joystick");
+       boton = GameObject.Find("Canvas/Jump");
+
+       btn = boton.GetComponent<Button>();
+        btn.onClick.AddListener(Jump);
     }
 
     void Update()
     {
-        
-        _direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
+        //_direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
+        _direction = new Vector3(joystick.GetComponent<Joystick>().Horizontal, 0f, joystick.GetComponent<Joystick>().Vertical).normalized;
         bool isGrounded = Physics.CheckSphere(_groundCheck.position, _groundCheckRadius, _groundMask);
         _animator.SetBool("isJumping", !isGrounded);
-
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (ispressed && isGrounded)
         {
             _rigidbody.AddForce(-_gravityBody.GravityDirection * _jumpForce, ForceMode.Impulse);
+            ispressed = false;
         }
+        
     }
     
     void FixedUpdate()
@@ -68,5 +78,9 @@ public class PlayerController : NetworkBehaviour
         {
             Debug.Log("ganaste");
         }
+    }
+
+    public void Jump(){
+        ispressed = true;
     }
 }

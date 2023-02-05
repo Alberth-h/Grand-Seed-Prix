@@ -712,6 +712,8 @@ MonoBehaviour:
   speed: 20
   _turnSpeed: 1500
   _jumpForce: 500
+  joystick: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+    type: 3}
 --- !u!114 &1320142737953672238
 MonoBehaviour:
   m_ObjectHideFlags: 0
