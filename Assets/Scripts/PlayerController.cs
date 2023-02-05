@@ -29,8 +29,8 @@ public class PlayerController : NetworkBehaviour
         if (!IsOwner) return;
         _rigidbody = transform.GetComponent<Rigidbody>();
         _gravityBody = transform.GetComponent<GravityBody>();
-       joystick = GameObject.Find("Canvas/Fixed Joystick");
-       boton = GameObject.Find("Canvas/Jump");
+       joystick = transform.Find("CameraHolder/Main Camera/Canvas/Fixed Joystick").gameObject;
+       boton = transform.Find("CameraHolder/Main Camera/Canvas/Jump").gameObject;
 
        btn = boton.GetComponent<Button>();
         btn.onClick.AddListener(Jump);
