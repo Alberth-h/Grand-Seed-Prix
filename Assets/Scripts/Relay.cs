@@ -16,8 +16,12 @@ public class Relay : MonoBehaviour
     [SerializeField] private Text txtJoinCode;
     [SerializeField] private TMP_InputField codeInput;
     [SerializeField] private Button btnJoinRelay;
-
-    [SerializeField] private GameObject uiButtons;
+    [SerializeField] private GameObject uiMenu;
+    [SerializeField] private GameObject uiLoading;
+    [SerializeField] private GameObject uiBackground;
+    [SerializeField] private GameObject menuCamera;
+    [SerializeField] private GameObject pnlCode;
+    
     private async void Start()
     {
         await UnityServices.InitializeAsync();
@@ -35,7 +39,8 @@ public class Relay : MonoBehaviour
     {
         try
         {
-            Destroy(uiButtons);
+            Destroy(uiMenu);
+            uiLoading.SetActive(true);
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(3);
         
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
@@ -48,6 +53,10 @@ public class Relay : MonoBehaviour
 
             NetworkManager.Singleton.StartHost();
 
+            Destroy(uiLoading);
+            Destroy(uiBackground);
+            Destroy(menuCamera);
+            pnlCode.SetActive(true);
             txtJoinCode.text = joinCode;
         }
         catch(RelayServiceException e)
@@ -60,12 +69,19 @@ public class Relay : MonoBehaviour
     {
         try
         {
-            Destroy(uiButtons);
+            Destroy(uiMenu);
+            uiLoading.SetActive(true);
             Debug.Log("Joining Relay with " + joinCode);
             JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
             RelayServerData relayServerData = new RelayServerData (joinAllocation, "dtls");
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
             NetworkManager.Singleton.StartClient();
+
+            Destroy(uiLoading);
+            Destroy(uiBackground);
+            Destroy(menuCamera);
+            pnlCode.SetActive(true);
+            txtJoinCode.text = joinCode;
         }
         catch(RelayServiceException e)
         {
