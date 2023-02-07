@@ -29,6 +29,7 @@ public class PlayerController : NetworkBehaviour
     [SerializeField]private GameObject wasted;
     
     [SerializeField]private GameObject win;
+    [SerializeField]private GameObject btnExitGame;
     
     [SerializeField]private GameObject panel;
     [SerializeField]private GameObject _cameraHolder;
@@ -89,6 +90,7 @@ public class PlayerController : NetworkBehaviour
             audioData = GetComponent<AudioSource>();
             audioData.Play();
             win.SetActive(true);
+            btnExitGame.SetActive(true);
             boton.SetActive(false);
             panel.SetActive(true);
             joystick.SetActive(false);
