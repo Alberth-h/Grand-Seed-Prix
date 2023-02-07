@@ -24,6 +24,10 @@ public class PlayerController : NetworkBehaviour
     private GameObject boton;
     private bool ispressed = false;
     private Button btn;
+    private AudioSource audioData;
+    private GameObject textoganar;
+
+    
     void Start()
     {
         if (!IsOwner) return;
@@ -76,7 +80,19 @@ public class PlayerController : NetworkBehaviour
         }
         if (collision.gameObject.tag == "Meta")
         {
+            audioData = GetComponent<AudioSource>();
+            audioData.Play();
+            textoganar.SetActive(true);
+            
+            this._animator.SetBool("isWin", true);
             Debug.Log("ganaste");
+        }
+        if (collision.gameObject.tag == "Bala")
+        {
+            //Destroy(gameObject);
+            this._animator.SetBool("isDead", true);
+            speed = 0;
+            _jumpForce = 0;
         }
     }
 

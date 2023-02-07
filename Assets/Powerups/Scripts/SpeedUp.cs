@@ -11,12 +11,15 @@ public class SpeedUp : MonoBehaviour
     [SerializeField] private GameObject right_shoe;
     [SerializeField] private GameObject left_shoe;
     private Transform trans2;
+    private AudioSource audioData;
 
     void OnTriggerEnter(Collider collider)
     {
         if(collider.gameObject.tag == "Player")
         {
             StartCoroutine(Picked(collider));
+            audioData = GetComponent<AudioSource>();
+            audioData.Play();
         }
     }
 
