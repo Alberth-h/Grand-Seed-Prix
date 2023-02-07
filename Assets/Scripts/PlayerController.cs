@@ -25,8 +25,14 @@ public class PlayerController : NetworkBehaviour
     private bool ispressed = false;
     private Button btn;
     private AudioSource audioData;
-    private GameObject textoganar;
-
+    
+    [SerializeField]private GameObject wasted;
+    
+    [SerializeField]private GameObject win;
+    
+    [SerializeField]private GameObject panel;
+    [SerializeField]private GameObject _cameraHolder;
+    [SerializeField] private Vector3 _camoffset;
     
     void Start()
     {
@@ -76,23 +82,37 @@ public class PlayerController : NetworkBehaviour
         if (!IsOwner) return;
         if (collision.gameObject.tag == "Limit")
         {
-            transform.position = new Vector3(31, 12, 55);
+            transform.position = new Vector3(0, 0, 0);
         }
         if (collision.gameObject.tag == "Meta")
         {
             audioData = GetComponent<AudioSource>();
             audioData.Play();
-            textoganar.SetActive(true);
+            win.SetActive(true);
+            boton.SetActive(false);
+            panel.SetActive(true);
+            joystick.SetActive(false);
+            transform.position = new Vector3(0, 0, 0);
+            speed = 0;
+            _jumpForce = 0;
+            _cameraHolder.transform.position = new Vector3(0, -0.5f, 20);
+            _cameraHolder.transform.rotation = Quaternion.Euler(new Vector3(90,180,90));
             
             this._animator.SetBool("isWin", true);
+            
             Debug.Log("ganaste");
         }
         if (collision.gameObject.tag == "Bala")
         {
+            //if (!IsOwner) return;
             //Destroy(gameObject);
             this._animator.SetBool("isDead", true);
             speed = 0;
             _jumpForce = 0;
+            wasted.SetActive(true);
+            panel.SetActive(true);
+            boton.SetActive(false);
+            joystick.SetActive(false);
         }
     }
 
