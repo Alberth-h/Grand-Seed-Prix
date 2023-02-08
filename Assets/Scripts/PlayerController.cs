@@ -24,7 +24,8 @@ public class PlayerController : NetworkBehaviour
     private GameObject boton;
     private bool ispressed = false;
     private Button btn;
-    private AudioSource audioData;
+    [SerializeField]private AudioSource audioData;
+    [SerializeField]private AudioSource _loseAudio;
     
     [SerializeField]private GameObject wasted;
     
@@ -87,7 +88,9 @@ public class PlayerController : NetworkBehaviour
         }
         if (collision.gameObject.tag == "Meta")
         {
-            audioData = GetComponent<AudioSource>();
+            //audioData = GetComponent<AudioSource>();
+            speed = 0;
+            _jumpForce = 0;
             audioData.Play();
             win.SetActive(true);
             btnExitGame.SetActive(true);
@@ -95,8 +98,7 @@ public class PlayerController : NetworkBehaviour
             panel.SetActive(true);
             joystick.SetActive(false);
             transform.position = new Vector3(0, 0, 0);
-            speed = 0;
-            _jumpForce = 0;
+            
             _cameraHolder.transform.position = new Vector3(0, -0.5f, 20);
             _cameraHolder.transform.rotation = Quaternion.Euler(new Vector3(90,180,90));
             
@@ -108,13 +110,17 @@ public class PlayerController : NetworkBehaviour
         {
             //if (!IsOwner) return;
             //Destroy(gameObject);
-            this._animator.SetBool("isDead", true);
-            speed = 0;
+             speed = 0;
             _jumpForce = 0;
+            this._animator.SetBool("isDead", true);
+           
             wasted.SetActive(true);
             panel.SetActive(true);
             boton.SetActive(false);
             joystick.SetActive(false);
+            btnExitGame.SetActive(true);
+            //_loseAudio = GetComponent<AudioSource>();
+            _loseAudio.Play();
         }
     }
 
